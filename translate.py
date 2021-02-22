@@ -75,12 +75,13 @@ def get_reverse(sequence):
     >>> get_reverse('AUGC')
     'CGUA'
     """
+    sequence = sequence.upper()
     if len(sequence) > 0:
         reverse_seq = sequence[::-1]
-        print(reverse_seq)
-        return(reverse_seq)
+        print("\n \n"+ reverse_seq)
+        return(reverse_seq.upper())
     else:
-        print("its blank")
+        return("") #need to capitalize
 #get reverse sequence
 #tried  print(sequence.reverse())
 #tried  print("original sequence" + sequence[3,2,1,0])
