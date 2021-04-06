@@ -57,7 +57,9 @@ def vet_nucleotide_sequence(sequence):
     # any valid RNA and DNA sequence strings, respectively (and only strings of
     # RNA and DNA bases).
     # Read the docstring above for additional clues.
-    rna_pattern_str = r'^[augcAUGC]*$'
+
+    ## can find more info on regex notes at https://github.com/joaks1/python-regex-notes
+    rna_pattern_str = r'^[augcAUGC]*$' #^ at beginning of string, $ at end, * is matching the preceeding characters zero or more times
     dna_pattern_str = r'^[atgcATGC]*$'
     ##########################################################################
 
@@ -65,6 +67,7 @@ def vet_nucleotide_sequence(sequence):
     dna_pattern = re.compile(dna_pattern_str)
 
     if rna_pattern.match(sequence):
+    dna_pattern_str = r'^[atcgATCG*$]'
         return
     if dna_pattern.match(sequence):
         return
@@ -119,7 +122,7 @@ def vet_codon(codon):
     # Change `codon_pattern_str` so that it will match any valid codons, and
     # only valid codons.
     # Read the docstring above for additional clues.
-    codon_pattern_str = r'^[AaUuCcGg]{3}$'
+    codon_pattern_str = r'^[AaUuCcGg]{3}$' #use the three bases 
     ##########################################################################
 
     codon_pattern = re.compile(codon_pattern_str)
