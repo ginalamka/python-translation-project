@@ -57,7 +57,9 @@ def vet_nucleotide_sequence(sequence):
     # any valid RNA and DNA sequence strings, respectively (and only strings of
     # RNA and DNA bases).
     # Read the docstring above for additional clues.
-    rna_pattern_str = r'^[aucgAUCG*$]'
+
+    ## can find more info on regex notes at https://github.com/joaks1/python-regex-notes
+    rna_pattern_str = r'^[aucgAUCG*$]' #^ at beginning of string, $ at end, * is matching the preceeding characters zero or more times
     dna_pattern_str = r'^[atcgATCG*$]'
     ##########################################################################
 
