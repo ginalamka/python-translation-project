@@ -242,4 +242,4 @@ if __name__ == '__main__':
             longest_peptide)
     sys.stdout.write(message)
     if longest_peptide == "MYWHATAPYTHQNISTA":
-        sys.stdout.write("Indeed.\n")
+        sys.stdout.write("get itttt girl.\n")
