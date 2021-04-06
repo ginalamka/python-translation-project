@@ -59,14 +59,15 @@ def vet_nucleotide_sequence(sequence):
     # Read the docstring above for additional clues.
 
     ## can find more info on regex notes at https://github.com/joaks1/python-regex-notes
-    rna_pattern_str = r'^[aucgAUCG*$]' #^ at beginning of string, $ at end, * is matching the preceeding characters zero or more times
-    dna_pattern_str = r'^[atcgATCG*$]'
+    rna_pattern_str = r'^[augcAUGC]*$' #^ at beginning of string, $ at end, * is matching the preceeding characters zero or more times
+    dna_pattern_str = r'^[atgcATGC]*$'
     ##########################################################################
 
     rna_pattern = re.compile(rna_pattern_str)
     dna_pattern = re.compile(dna_pattern_str)
 
     if rna_pattern.match(sequence):
+    dna_pattern_str = r'^[atcgATCG*$]'
         return
     if dna_pattern.match(sequence):
         return
@@ -121,7 +122,7 @@ def vet_codon(codon):
     # Change `codon_pattern_str` so that it will match any valid codons, and
     # only valid codons.
     # Read the docstring above for additional clues.
-    codon_pattern_str = r'AUG'
+    codon_pattern_str = r'^[AaUuCcGg]{3}$' #use the three bases 
     ##########################################################################
 
     codon_pattern = re.compile(codon_pattern_str)
@@ -209,7 +210,9 @@ def find_first_orf(sequence,
     # exactly. Change `orf_pattern_str` so that it will match any open reading
     # frame.
     # Read the docstring above for additional clues.
-    orf_pattern_str = r'AUGGUAUAA'
+    orf_pattern_str = r'(' + '|'.join(start_codons) + ')([AUGC]{3})*(' + '|'.join(stop_codons) + ')'
+   
+     #this one was hardddd. double check this 
     ##########################################################################
 
     # Create the regular expression object
