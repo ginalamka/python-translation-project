@@ -67,7 +67,7 @@ def vet_nucleotide_sequence(sequence):
     dna_pattern = re.compile(dna_pattern_str)
 
     if rna_pattern.match(sequence):
-    dna_pattern_str = r'^[atcgATCG*$]'
+        dna_pattern_str = r'^[atcgATCG*$]'
         return
     if dna_pattern.match(sequence):
         return
